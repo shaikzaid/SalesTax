@@ -1,12 +1,11 @@
 package dsaProblems;
 
 public class consolePrinter {
-    public static void printProduct(Product product) {
-        if(product.isImported()){
-        System.out.println(+product.getQuantity()+" Imported "+product.getName() + " :" +roundedValue(product.getPrice())+" ");
-    }
+   public static void printPriceWithTax(taxPrice taxPrice){
+        if(taxPrice.isImported()){
+        System.out.println(taxPrice.getQuantity()+" imported "+taxPrice.getName()+" "+roundedValue(taxPrice.getPriceWithTax()));}
         else {
-            System.out.println(+product.getQuantity()+" "+product.getName() + " " +roundedValue(product.getPrice()));
+            System.out.println(taxPrice.getQuantity()+" "+taxPrice.getName()+" :"+roundedValue(taxPrice.getPriceWithTax()));
         }
     }
 
