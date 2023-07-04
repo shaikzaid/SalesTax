@@ -1,9 +1,7 @@
+
 package dsaProblems;
 import java.util.List;
 import java.util.Scanner;
-
-//import static dsaProblems.consolePrinter.printProductWithPrice;
-
 public class SalesTaxes {
     public static void main(String[] args) {
 
@@ -12,19 +10,20 @@ public class SalesTaxes {
 
         ItemList items = new ItemList();
         for (Product product : products) {
+            items.calculateSalesTaxes();
             items.addProduct(product, product.getQuantity());
-        }
-        List<Product> products1 = items.getProducts();
-        for (Product product : products1) {
-            consolePrinter.printProduct(product);
+
         }
 
+        List<taxPrice> productOutputs = items.calculatePricesWithTax();
+        for (taxPrice productOutput : productOutputs) {
+           consolePrinter.printPriceWithTax(productOutput);
+        }
         double salesTax = items.calculateSalesTaxes();
         consolePrinter.printSalesTax(salesTax);
 
         double total = items.calculateTotalSales();
         consolePrinter.printTotal(total,salesTax);
-
-
         }
+
     }
